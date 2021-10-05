@@ -14,5 +14,4 @@ pipeline {
             echo "OKe"
     }
         }
-    }
 }
