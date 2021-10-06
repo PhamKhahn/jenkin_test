@@ -69,7 +69,7 @@ pipeline {
 }
 */
 
-
+/*
 pipeline {
     agent any
     environment {
@@ -86,3 +86,55 @@ pipeline {
         }
     }
 }
+*/
+
+
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                sh './heath-check.sh'
+            }
+        }
+    }
+
+    post {
+        always {
+            junit 'build/report/**/*.xml'
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
