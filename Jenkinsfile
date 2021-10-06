@@ -32,7 +32,7 @@ pipeline {
         }
     }
     post {
-        alway {
+        always {
             echo "Luon thuc hien"
         }
         success {
