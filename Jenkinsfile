@@ -72,7 +72,7 @@ pipeline {
 
 pipeline {
     agent any
-    enviroments {
+    environment {
         AGE = 15
         NAME = "Pham Quoc Khanh"
     }
