@@ -79,8 +79,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo "My name is $NAME"
-                echo "My age is $AGE"
+                echo "My name is ${NAME}"
+                echo "My age is ${AGE}"
+                sh 'printenv'
             }
         }
     }
