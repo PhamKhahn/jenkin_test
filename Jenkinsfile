@@ -17,6 +17,7 @@ pipeline {
 }
 */
 
+
 pipeline {
     agent any
     stages {
@@ -29,23 +30,24 @@ pipeline {
                 }
             }
         }
-        post {
-            alway {
-                echo "Luon thuc hien"
-            }
-            success {
-                echo "Chay neu success"
-            }
-            failure {
-                echo "chay neu fail"
-            }
-            unstable {
-                echo "Chay neu run duoc mark unstable (khong on dinh)"
-            }
-            changed {
-                echo "Chay neu state cua Pipeline duoc changed"
-                echo "VD: neu Pipeline luc truoc fail nhung hien tai thi da success"
-            }
+    }
+    post {
+        alway {
+            echo "Luon thuc hien"
+        }
+        success {
+            echo "Chay neu success"
+        }
+        failure {
+            echo "chay neu fail"
+        }
+        unstable {
+            echo "Chay neu run duoc mark unstable (khong on dinh)"
+        }
+        changed {
+            echo "Chay neu state cua Pipeline duoc changed"
+            echo "VD: neu Pipeline luc truoc fail nhung hien tai thi da success"
         }
     }
 }
+
