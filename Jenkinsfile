@@ -17,7 +17,7 @@ pipeline {
 }
 */
 
-
+/*
 pipeline {
     agent any
     stages {
@@ -51,3 +51,18 @@ pipeline {
     }
 }
 
+*/
+
+pipeline {
+    agent {
+        docker { images 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+
+}
