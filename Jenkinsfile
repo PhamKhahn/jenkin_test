@@ -53,6 +53,7 @@ pipeline {
 
 */
 
+/*
 pipeline {
     agent {
         docker { image 'node:14-alpine' }
@@ -65,4 +66,22 @@ pipeline {
         }
     }
 
+}
+*/
+
+
+pipeline {
+    agent any
+    enviroment {
+        AGE = 15
+        NAME = "Pham Quoc Khanh"
+    }
+    stages {
+        stage('Test') {
+            steps {
+                echo "My name is $NAME"
+                echo "My age is $AGE"
+            }
+        }
+    }
 }
