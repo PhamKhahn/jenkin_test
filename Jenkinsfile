@@ -90,6 +90,7 @@ pipeline {
             steps {
                 echo "${BRANCH_NAME}"
                 echo "${env.GIT_URL}"
+                echo "${env.GIT_BRANCH}"
             }
         }
     }
