@@ -1,6 +1,6 @@
 1. Step
 - `sh` : thuc thi 1 shell command
-
+- `junit` : tổng hợp báo cáo về việc test
 2. Step wrap other step
 - `retry` : thuc thi den khi nao success thi thoi
 Hoac
@@ -90,14 +90,55 @@ pipeline {
 ```
 
 4. Define các execution environment (xác định môi trường thực thi)
+https://www.jenkins.io/doc/pipeline/tour/agents/
+
 - sử dụng chỉ thị `agent` : nói cho Jenkins biết nơi và cách thực thi Pipeline hoặc tập con của nó 
 => `agent` là chỉ thị cần thiết trong Pipeline
 - 1 số vấn đề lquan đến agent:
 	- tất cả các step contained trong block sẽ được xếp vào queue để thực thi bởi Jenkins. Ngay khi có 1 executor được available, các step này sẽ được thực thi
 	- 1 workspace sẽ là nơi chứa các file được check out từ source control cũng như các file bổ sung cho Pipeline
 
+Define agent sử dụng docker 
+```
+pipeline {
+    agent {
+        docker { image 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 
+}
+```
 
+5. Sử dụng environment variables
+- Biến môi trường có thể được set global hoặc theo từng stage (để apply riêng trên từng stage)
 
+https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables
 
+```
+pipeline {
+    agent any
+    environment {
+        AGE = 15
+        NAME = "Pham Quoc Khanh"
+    }
+    stages {
+        stage('Test') {
+            steps {
+                echo "My name is ${NAME}"
+                echo "My age is ${AGE}"
+                sh 'printenv'
+            }
+        }
+    }
+}
+```
 
+- 1 common use nữa là dùng biến môi trường để truyền vào thay cho Credential. Chứ không truyền trực tiếp Credential cho Jenkinsfile
+
+https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
