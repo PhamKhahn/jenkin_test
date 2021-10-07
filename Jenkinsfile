@@ -83,6 +83,11 @@ pipeline {
                 echo "My age is ${AGE}"
                 sh 'printenv'
             }
+        stage('Build') {
+            steps {
+                echo $env.BRANCH_NAME
+            }
+        }
         }
     }
 }
