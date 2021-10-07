@@ -89,6 +89,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "${BRANCH_NAME}"
+                echo "${env.GIT_URL}"
             }
         }
     }
