@@ -69,7 +69,7 @@ pipeline {
 }
 */
 
-
+// Sử dụng env của pipeline. check bằng printenv để xem các env hiện có
 pipeline {
     agent any
     environment {

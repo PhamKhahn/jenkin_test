@@ -142,3 +142,19 @@ pipeline {
 - 1 common use nữa là dùng biến môi trường để truyền vào thay cho Credential. Chứ không truyền trực tiếp Credential cho Jenkinsfile
 
 https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#handling-credentials
+
+
+## PIPELINE
+- pipeline code viết bằng groovy syntax -> nếu IDE không highlight syntax 1 cách chính xác -> thêm `#!/usr/bin/env groovy` ở đầu Jenkinsfile
+
+- **built-in documentation** sẽ được gen ra và update dựa trên các plugin đã install
+```
+${YOUR_JENKINS_URL}/pipeline-syntax
+```
+- sử dụng tính năng `Pipeline Syntax` trong job để gen ra các syntax phù hợp.
+
+- **Global Variable** 
+```
+- pipeline cũng cung cấp tập built-in "Global variable reference" -> được tự động gia tăng bởi các plugin
+-  ${YOUR_JENKINS_URL}/pipeline-syntax/globals
+```
