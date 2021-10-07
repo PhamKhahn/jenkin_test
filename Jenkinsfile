@@ -75,8 +75,9 @@ pipeline {
     environment {
         AGE = 15
         NAME = "Pham Quoc Khanh"
+        BRANCH_NAME = "dev"
     }
-    BRANCH_NAME = "dev"
+    
     stages {
         stage('Test') {
             steps {
