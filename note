@@ -157,4 +157,12 @@ ${YOUR_JENKINS_URL}/pipeline-syntax
 ```
 - pipeline cũng cung cấp tập built-in "Global variable reference" -> được tự động gia tăng bởi các plugin
 -  ${YOUR_JENKINS_URL}/pipeline-syntax/globals
+
+Default:
+    - env : exposes biến môi trường
+    - params : exposes tất cả parameter được define cho pipeline (ở dạng read-only)
+    - currentBuild : được sử dụng để khám phá thông tin về Pipeline hiện đang thực thi (VD; currentBuild.result, currentBuild.displayName,...)
 ```
+- Dùng `${YOUR_JENKINS_URL}/directive-generator` (**Declarative Directive Generator**) để gen config cho các khối
+
+## Using pipeline
