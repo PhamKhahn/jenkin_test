@@ -108,7 +108,7 @@ pipeline {
                     expression {
                         currentBuild.result == null || currentBuild.result == 'SUCCESS'
                     }
-                stes {
+                steps {
                     echo 'EVERYTHING OKE'
                 }
                 }
