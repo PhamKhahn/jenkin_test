@@ -107,7 +107,7 @@ pipeline {
                 echo "${BRANCH_NAME}"
                 echo "${env.GIT_URL}"
                 echo "${env.GIT_BRANCH}"
-                echo 'EVERYTHING OKE'
+                echo "EVERYTHING OKE"
                 
                 }
             }
