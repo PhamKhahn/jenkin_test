@@ -95,6 +95,7 @@ pipeline {
                 echo "My age is ${AGE}"
                 sh 'printenv'
                 echo "${currentBuild.result}"
+
             }
         }
         stage('Build') {
@@ -103,6 +104,14 @@ pipeline {
                 echo "${env.GIT_URL}"
                 echo "${env.GIT_BRANCH}"
                 echo "${currentBuild.result}"
+                when{
+                    expression {
+                        currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                    }
+                stes {
+                    echo 'EVERYTHING OKE'
+                }
+                }
             }
         }
     }
