@@ -69,7 +69,7 @@ pipeline {
 }
 */
 
-// Sử dụng env của pipeline. check bằng printenv để xem các env hiện có
+// Sử dụng env của pipeline. check bằng printenv để xem các env hiện có. 
 pipeline {
     agent any
     environment {
@@ -80,6 +80,16 @@ pipeline {
     
     stages {
         stage('Test') {
+            steps {
+                /* `make check` returns non-zero on test failures,
+                * using `true` to allow the Pipeline to continue nonetheless
+                */
+                sh 'make check || true' 
+                junit '**/target/*.xml' 
+            }
+        }
+        
+        stage('Test1') {
             steps {
                 echo "My name is ${NAME}"
                 echo "My age is ${AGE}"
@@ -95,6 +105,8 @@ pipeline {
         }
     }
 }
+
+
 
 
 
