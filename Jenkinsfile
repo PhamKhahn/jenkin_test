@@ -99,12 +99,13 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {
                 when{
                     expression {
                         currentBuild.result == null || currentBuild.result == 'SUCCESS'
                     }
                 }
+            steps {
+
                 echo "${BRANCH_NAME}"
                 echo "${env.GIT_URL}"
                 echo "${env.GIT_BRANCH}"
