@@ -90,6 +90,9 @@ pipeline {
         }
 
         stage('Test1') {
+            environment { 
+                DEBUG_FLAGS = '-g'
+            }        
             steps {
                 echo "My name is ${NAME}"
                 echo "My age is ${AGE}"
