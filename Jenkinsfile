@@ -104,12 +104,13 @@ pipeline {
                     expression {
                         currentBuild.result == null || currentBuild.result == 'SUCCESS'
                     }
+                }
                 echo "${BRANCH_NAME}"
                 echo "${env.GIT_URL}"
                 echo "${env.GIT_BRANCH}"
                 echo "EVERYTHING OKE"
                 
-                }
+                
             }
         }
     }
