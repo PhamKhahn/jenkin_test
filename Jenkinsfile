@@ -86,14 +86,16 @@ pipeline {
                 */
                 sh 'make check || true' 
                 junit '**/target/*.xml' 
+                echo "${currentBuild.result}"
             }
         }
-        
+
         stage('Test1') {
             steps {
                 echo "My name is ${NAME}"
                 echo "My age is ${AGE}"
                 sh 'printenv'
+                echo "${currentBuild.result}"
             }
         }
         stage('Build') {
@@ -101,6 +103,7 @@ pipeline {
                 echo "${BRANCH_NAME}"
                 echo "${env.GIT_URL}"
                 echo "${env.GIT_BRANCH}"
+                echo "${currentBuild.result}"
             }
         }
     }
