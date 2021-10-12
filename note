@@ -215,7 +215,7 @@ pipeline {
     }
 }
 ```
-- Handing Credentials : không truyền dạng text 1 cách rõ ràng vào file pipeline mà sẽ truyền thông qua biến . Sử dụng syntax `credentials('')`
+- **Handing Credentials** : không truyền dạng text 1 cách rõ ràng vào file pipeline mà sẽ truyền thông qua biến . Sử dụng syntax `credentials('')`
 ```
 pipeline {
     agent {
@@ -238,4 +238,18 @@ pipeline {
         }
     }
 }
+```
+```
+Vào tính năng Snippet Generator -> chọn withCredentials: Bind credentials to variables -> gen code tương ứng cho credentials
+```
+
+- **Chuỗi nội suy** : lưu ý không dùng với các biên môi trường credentials vì dẫn đến lộ thông tin
+
+```
+sh("curl -u ${EXAMPLE_CREDS_USR}:${EXAMPLE_CREDS_PSW} https://example.com/")  -> Lộ thông tin vì biến được nội suy trực tiếp
+
+
+sh('curl -u $EXAMPLE_CREDS_USR:$EXAMPLE_CREDS_PSW https://example.com/') _> nên dùng nháy đơn ntn
+
+
 ```
