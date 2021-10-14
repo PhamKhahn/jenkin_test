@@ -249,7 +249,46 @@ Vào tính năng Snippet Generator -> chọn withCredentials: Bind credentials
 sh("curl -u ${EXAMPLE_CREDS_USR}:${EXAMPLE_CREDS_PSW} https://example.com/")  -> Lộ thông tin vì biến được nội suy trực tiếp
 
 
-sh('curl -u $EXAMPLE_CREDS_USR:$EXAMPLE_CREDS_PSW https://example.com/') _> nên dùng nháy đơn ntn
-
+sh('curl -u $EXAMPLE_CREDS_USR:$EXAMPLE_CREDS_PSW https://example.com/') _> nên dùng nháy đơn ntn -> biến được gọi nhưng không output ra thông tin credentials
 
 ```
+
+- Cũng cần chú ý. Có thể bị Injection thông qua nội suy
+```
+pipeline {
+  agent any
+  parameters {
+    string(name: 'STATEMENT', defaultValue: 'hello; ls /', description: 'What should I say?')
+  }
+  stages {
+    stage('Example') {
+      steps {
+        /* WRONG! */
+        sh("echo ${STATEMENT}")
+      }
+    }
+  }
+}
+```
+=> thay thế bằng dâu 2 dấu `''`
+
+- **Handling parameters** 
+    - Declarative Pipeline cho phép Pipeline accept các parameter được user chỉ định vào runtime thông qua directive `parameter`
+    - Việc config parameter với Scripted Pipeline được thực hiện với `properties` -> tìm trong `Snippet Generator`
+    - Nếu config được chấp nhận -> sẽ xuất hiện option `Build with Parameters` -> access tới các parameter thông qua `params`
+```
+pipeline {
+    agent any
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "${params.Greeting} World!"
+            }
+        }
+    }
+}
+```
+

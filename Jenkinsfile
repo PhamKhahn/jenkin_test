@@ -77,6 +77,11 @@ pipeline {
         NAME = "Pham Quoc Khanh"
         BRANCH_NAME = "main"
     }
+    parameters {
+        choice choices: ['a', 'b', 'c'], description: 'HI Hie', name: 'HI'
+        string defaultValue: 'develop', description: 'Fill  your branch deploy', name: 'git branch', trim: true
+}
+
     
     stages {
         stage('Test') {
@@ -119,7 +124,6 @@ pipeline {
         }
     }
 }
-
 
 
 
