@@ -8,12 +8,14 @@ class Person {
     String name
     //Create greet method
     String greet(String otherPerson) {
-        "Hello ${otherPerson}"
+        println "Hello ${otherPerson}"
     }
 }
 
 def NewOb = new Person()
-println NewOb.greet("Pham Quoc Khanh")
+NewOb.greet("Pham Quoc Khanh")
+NewOb.name = "ABCXZY"
+println NewOb. name
 
 /* KEYWORD cua Groovy
 as
@@ -134,3 +136,51 @@ assert map.'Simpson-Homer' == "Homer Simpson"
 
 ///#### Strings
 //
+
+
+
+class Example1 { 
+   static void main(String[] args) { 
+      //Example of a int datatype 
+      int x = 5; 
+		
+      //Example of a long datatype 
+      long y = 100L; 
+		
+      //Example of a floating point datatype 
+      float a = 10.56f; 
+		
+      //Example of a double datatype 
+      double b = 10.5e40; 
+		
+      //Example of a BigInteger datatype 
+      BigInteger bi = 30g; 
+		
+      //Example of a BigDecimal datatype 
+      BigDecimal bd = 3.5g; 
+		
+      println(x); 
+      println(y); 
+      println(a); 
+      println(b); 
+      println(bi); 
+      println(bd); 
+
+          // Defining a variable in lowercase  
+	  
+      // Defining a variable in uppercase  
+      int X = 6; 
+	  
+      // Defining a variable with the underscore in it's name 
+      def _Name = "Joe"; 
+		
+      println(x); 
+      println(X); 
+      println(_Name); 
+   } 
+}
+
+      def range = 5..10
+      println(range) 
+      println(range.get(2))
+
