@@ -384,6 +384,8 @@ pipeline {
 ```
 Step `stash` cho phép capture các tệp matching vs pattern (** / target / *. Jar) để sử dụng lại trong cùng một Pipeline. Khi Pipeline đã hoàn thành việc thực thi, các tệp được lưu trữ sẽ bị xóa khỏi bộ điều khiển Jenkins.
 
+`unstash` -> lấy lại những gì được stash đánh named (app) từ Jenkin Controller đưa vào workspace của Pipeline đang chạy
+
 
 - Pipeline follow Groovy language nên cho phép bỏ qua dấu mặc đơn xung quanh các arguments và sử dụng nhiều parameter được đánh tên để tạo thành 1 Map trong groovy theo syntax `[key1: value1, key2: value2]`
 ```
@@ -437,3 +439,10 @@ stage('Test') {
 - Restarting hoặc Rerunning 1 pipeline
 - Replay
 - Restart từ 1 Stage : Declarative Pipeline có thể restart 1 stage cụ thể
+    - Có thể restart bất kỳ stage nào đã chạy trong Declarative Pipeline -> rerun lại 1 stage do lỗi môi trường hoặc chỉ thị không đúng -> tất các input cho Pipeline đều giống như cho stage đã chạy lúc trước (SCM info, build parameter, nội dung các step `stash`) trong original Pipeline nếu được chỉ định.
+
+### Cách sử dụng
+- Restart từ UI thông thường
+- Restart từ BlueOcean (Cần cài thêm plugin)
+
+## Bảo quản các `stash` để sử dụng cho các stage được restart
