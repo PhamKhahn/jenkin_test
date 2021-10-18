@@ -215,3 +215,157 @@ Nested Switch
             println("No matching case found!!"); 
       }
 ```
+
+## 7. Method
+- được khai báo với 1 return type hoặc keyword `def`
+- có thể nhận 1 số lượng các arguments. Không cần xác định rõ type của argument
+- Có thể thêm các modifify như `public, private , protected`. Mặc định là `public`
+
+```
+def methodName() { 
+   //Method code 
+}
+```
+```
+class Example {
+   static def DisplayName() {
+      println("This is how methods work in groovy");
+      println("This is an example of a simple method");
+   } 
+	
+   static void main(String[] args) {
+      DisplayName();
+   } 
+}
+```
+```
+class Example {
+   static void sum(int a,int b) {
+      int c = a+b;
+      println(c);
+   }  
+	
+   static void main(String[] args) {
+      sum(10,5);
+   } 
+}
+```
+- Có thể đặt giá trị mặc định cho argum
+```
+def someMethod(parameter1, parameter2 = 0, parameter3 = 0) { 
+   // Method code goes here 
+} 
+```
+- Method có thể trả về giá trị (return value)
+```
+class Example {
+   static int sum(int a,int b = 5) {
+      int c = a+b;
+      return c;
+   } 
+	
+   static void main(String[] args) {
+      println(sum(6));
+   } 
+}
+```
+- **Instance method** : các method thường được viết trong 1 class. sau đó khi cần sử dụng -> khai báo các object của class -> từ các object cụ thể gọi đến các method để làm các hoạt động tương ứng
+```
+class Example { 
+   int x; 
+	
+   public int getX() { 
+      return x; 
+   } 
+	
+   public void setX(int pX) { 
+      x = pX; 
+   } 
+	
+   static void main(String[] args) { 
+      Example ex = new Example(); 
+      ex.setX(100); 
+      println(ex.getX()); 
+   } 
+}
+```
+- **Local and External Parameter Names** 
+```
+class Example { 
+   static int x = 100; 
+	
+   public static int getX() { 
+      int lx = 200; 
+      println(lx); 
+      return x; 
+   } 
+	
+   static void main(String[] args) { 
+      println(getX()); 
+   }  
+}
+```
+
+- sử dụng `this` method
+```
+class Example { 
+   int x = 100; 
+	
+   public int getX() { 
+      this.x = 200; 
+      return x; 
+   } 
+	
+   static void main(String[] args) {
+      Example ex = new Example(); 
+      println(ex.getX());
+   }
+}
+```
+
+## 8. Optionals
+- sử dụng keyword `def`: ta không cần thiết phải define type của biến. giúp dev nhanh nhưng cần chú ý việc đặt tên biến -> không gây khó khăn sau này
+
+```
+class Example { 
+   static void main(String[] args) { 
+      // Example of an Integer using def 
+      def aint = 100; 
+      println(aint); 
+		
+      // Example of an float using def 
+      def bfloat = 100.10; 
+      println(bfloat); 
+		
+      // Example of an Double using def 
+      def cDouble = 100.101; 
+      println(cDouble);
+		
+      // Example of an String using def 
+      def dString = "HelloWorld"; 
+      println(dString); 
+   } 
+}
+```
+
+## 9.Number
+- 2 loại: interget,float
+- có nhiều method hỗ trợ làm việc vs số
+```
+class Example { 
+   float x = 100; 
+	
+   public int getX() { 
+      x = 200.855; 
+      return x; 
+   } 
+	
+static void main(String[] args) {
+      Example ex = new Example(); 
+      println(Math.floor(ex.getX()))
+}
+}
+
+```
+https://www.tutorialspoint.com/groovy/groovy_numbers.htm
+
