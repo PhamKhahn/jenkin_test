@@ -446,3 +446,24 @@ stage('Test') {
 - Restart từ BlueOcean (Cần cài thêm plugin)
 
 ## Bảo quản các `stash` để sử dụng cho các stage được restart
+- Kết quả stash các aftifacts sẽ bị clear khi Pipeline hoàn thành, bất kể kết quả của Pipeline -> khi restart 1 Declarative stage ta có thể muốn `unstash` các artifact từ stage đã run phía trước 
+```
+options {
+    preserveStashes() 
+    // or
+    preserveStashes(buildCount: 5) 
+}
+```
+Mặc định số lần preserve là 1. ta có thể chỉ định buildCount từ 1-50. Ngoài 50 thì lỗi
+
+
+## 2. Branches and Pull Requests 
+```
+Jenkin lấy tên của Pipeline để tạo dir trên disk -> nếu pipeline name có khoảng trắng -> có thể có bugs trong scripts
+```
+- Khởi tạo:  New Item -> mutilbranch pipeline -> Add sources -> build Trigger -> chọn tgian rescan branch
+- Biến môi trường: Multibranch pipeline expose các thông tin bổ sung về branch thông qua biến toàn cục `env` như:
+    - BRANCH_NAME
+    - CHANGE_ID : mã định danh tương ứng vs 1 loạt các change request. ví dụ như là 1 pull request number
+
+

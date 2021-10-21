@@ -1,14 +1,12 @@
 class Example { 
-   float x = 100; 
-	
-   public int getX() { 
-      x = 200.855; 
-      return x; 
+   static void main(String[] args) { 
+      String sample = "Hello world"; 
+      println(sample[4]); // Print the 5 character in the string
+		
+      //Print the 1st character in the string starting from the back 
+      println(sample[-1]); 
+      println(sample[1..2]);//Prints a string starting from Index 1 to 2 
+      println(sample[4..2]);//Prints a string starting from Index 4 back to 2 
+      
    } 
-	
-}
-
-static void main(String[] args) {
-      Example ex = new Example(); 
-      println(Math.floor(ex.getX()))
 }

@@ -369,3 +369,82 @@ static void main(String[] args) {
 ```
 https://www.tutorialspoint.com/groovy/groovy_numbers.htm
 
+## 10.Strings
+- String = Đặt văn bản vào trong dấu  `' '` hoặc `"" ""` hoặc `""" """`
+- Trong `""" """` có thể phần thành nhiều dòng
+
+```
+class Example { 
+    float x = 100; 
+    def msMap = """
+      Phamquockhanh:
+        new new
+      Do thi Van:
+        bla lba
+      """
+	
+   public int getX() { 
+      x = 200.855; 
+      return x; 
+   } 
+	
+}
+
+static void main(String[] args) {
+      Example ex = new Example(); 
+      println(Math.floor(ex.getX()))
+
+      println(ex.msMap)
+}
+```
+- String Index : bắt đầu từ 0
+```
+class Example { 
+   static void main(String[] args) { 
+      String sample = "Hello world"; 
+      println(sample[4]); // Print the 5 character in the string
+		
+      //Print the 1st character in the string starting from the back 
+      println(sample[-1]); 
+      println(sample[1..2]);//Prints a string starting from Index 1 to 2 
+      println(sample[4..2]);//Prints a string starting from Index 4 back to 2 
+      
+   } 
+}
+```
+- String có các operation cơ bản
+   - nối chuỗi +
+   - lặp chuỗi *
+   - check độ dài chuỗi: vd: sample.length()
+- String cũng có các Method phụ trợ: https://www.tutorialspoint.com/groovy/groovy_strings.htm
+
+## 11. Ranges
+- cách viết tắt để biểu thị cho 1 chuỗi giá trị
+```
+1..10 - An example of an inclusive Range
+1..<10 - An example of an exclusive Range
+‘a’..’x’ – Ranges can also consist of characters
+10..1 – Ranges can also be in descending order
+‘x’..’a’ – Ranges can also consist of characters and be in descending order.
+```
+- 1 số method available cho range : https://www.tutorialspoint.com/groovy/groovy_ranges.htm
+
+## 12. List
+- lưu và đánh chỉ mục 1 loạt các đối tượng, phân tách bởi dấu phẩy
+```
+[11, 12, 13, 14] – A list of integer values
+[‘Angular’, ‘Groovy’, ‘Java’] – A list of Strings
+[1, 2, [3, 4], 5] – A nested list
+[‘Groovy’, 21, 2.11] – A heterogeneous list of object references
+[ ] – An empty list
+```
+- 1 số các list method available trong Groovy: https://www.tutorialspoint.com/groovy/groovy_lists.htm
+
+## 13.Maps
+- hiểu như là 1 liên kết giữa array,dictionary,table và hash -> 1 tập hợp tham chiếu đối tượng chứ không có thứ tự
+- Dạng key:value
+```
+[‘TopicName’ : ‘Lists’, ‘TopicName’ : ‘Maps’] – Collections of key value pairs which has TopicName as the key and their respective values.
+
+[ : ] – An Empty map.
+```
