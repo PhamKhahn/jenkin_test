@@ -448,3 +448,4 @@ class Example {
 
 [ : ] – An Empty map.
 ```
+- 1 số các map method trong Groovy: https://www.tutorialspoint.com/groovy/groovy_maps.htm
