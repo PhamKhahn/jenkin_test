@@ -118,7 +118,7 @@ pipeline {
                 echo "${env.GIT_URL}"
                 echo "${env.GIT_BRANCH}"
                 echo "EVERYTHING OKE"
-                
+                sh 'printenv'
                 
             }
         }
