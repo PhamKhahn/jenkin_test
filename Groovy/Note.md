@@ -449,3 +449,135 @@ class Example {
 [ : ] – An Empty map.
 ```
 - 1 số các map method trong Groovy: https://www.tutorialspoint.com/groovy/groovy_maps.htm
+
+## 14. Regular Expressions
+- Là 1 pattern để tìm substring trong text
+- Sử dụng `~` : thay cho việc gọi java.util.regex.Pattern.compile(string) method
+
+VD: def regex = ~'Groovy'
+
+   - `=~` sẽ trả về Boolean trong if/while statement
+
+https://www.tutorialspoint.com/groovy/groovy_regular_expressions.htm
+https://www.baeldung.com/groovy-pattern-matching
+
+```
+text = 'Some 42 number #12 more'
+def ma = (text =~ /\d+/)
+println ma              // java.util.regex.Matcher[pattern=\d+ region=0,23 lastmatch=]
+println ma[0]           // 42
+ 
+def mb = (text =~ /#\d+/)
+println mb              // java.util.regex.Matcher[pattern=#\d+ region=0,23 lastmatch=]
+println mb[0]           //  #12
+ 
+def mc = (text =~ /#(\d+)/)
+println mc[0]          // [#12, 12]
+println mc[0][0]       // #12
+println mc[0][1]       // 12
+
+
+text = '/abc/def/da/de/abc_def_ge.txt'
+def m = (text =~ /[^\/]*$/)
+println m[0]     // abc_def_ge.txt
+```
+
+## 15. Exception handing
+- xử lý các lỗi phát sinh khi run để không khiến dừng app
+   - finally block sẽ chạy bất kể có exception hay không
+```
+class Example {
+   static void main(String[] args) {
+      try {
+         def arr = new int[3];
+         arr[5] = 5;
+      } catch(ArrayIndexOutOfBoundsException ex) {
+         println("Catching the Array out of Bounds exception");
+         println(ex)
+      }catch(Exception ex) {
+         println("Catching the exception");
+      } finally {
+         println("The final block");
+      }
+		
+      println("Let's move on after the exception");
+   } 
+} 
+```
+
+- 1 số exception method available trong Groovy: https://www.tutorialspoint.com/groovy/groovy_exception_handling.htm
+
+
+
+```
+class Example {
+   static void main(String[] args) {
+      try {
+         def arr = new int[3];
+         arr[5] = 5;
+      }catch(ArrayIndexOutOfBoundsException ex) {
+         println(ex.toString());
+         println(ex.getMessage());
+         println(ex.getStackTrace());  
+      } catch(Exception ex) {
+         println("Catching the exception");
+      }finally {
+         println("The final block");
+      }
+		
+      println("Let's move on after the exception");
+   } 
+}
+```
+
+## 16. Hướng đối tượng
+- Class và object -> thể hiện bản chất hướng đối tượng
+   - Class : tập các dữ liệu và method hoạt động trên các dữ liệu đó -> đại diện cho 1 số đối tượng -> để giải quyết các vấn đề liên quan đến đối tượng đó
+
+```
+class Student {
+   int StudentID;
+   String StudentName;
+	
+   static void main(String[] args) {
+      Student st = new Student();
+      st.StudentID = 1;
+      st.StudentName = "Joe"     
+   } 
+}
+```
+=> Class Student đại diện cho Sinh viên -> gồm các thông tin như ID và Tên
+
+- Phương thức getter và setter : các dữ liệu/ biến cần private. -> sử dụng các phương thức getter và setter để set và lấy giá trị của các biến 
+
+```
+class Student {
+   private int StudentID;
+   private String StudentName;
+	
+   void setStudentID(int pID) {
+      StudentID = pID;
+   }
+	
+   void setStudentName(String pName) {
+      StudentName = pName;
+   }
+	
+   int getStudentID() {
+      return this.StudentID;
+   }
+	
+   String getStudentName() {
+      return this.StudentName;
+   }
+	
+   static void main(String[] args) {
+      Student st = new Student();
+      st.setStudentID(1);
+      st.setStudentName("Joe");
+		
+      println(st.getStudentID());
+      println(st.getStudentName());
+   } 
+}
+```
