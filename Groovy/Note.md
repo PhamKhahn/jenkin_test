@@ -581,3 +581,6 @@ class Student {
    } 
 }
 ```
+=> StudentID và StudentName được đánh dấu private -> không truy cập được từ ngoài class
+
+=> Mỗi member sẽ có phương thức setter và getter riêng 

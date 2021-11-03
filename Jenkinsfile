@@ -1,3 +1,4 @@
+@Library('jenkins-library@master')
 /*
 pipeline {
     agent any
@@ -119,7 +120,7 @@ pipeline {
                 echo "${env.GIT_BRANCH}"
                 echo "EVERYTHING OKE"
                 sh 'printenv'
-                
+                check("Pham Quoc Khanh")                
             }
         }
     }

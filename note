@@ -467,3 +467,20 @@ Jenkin lấy tên của Pipeline để tạo dir trên disk -> nếu pipeline na
     - CHANGE_ID : mã định danh tương ứng vs 1 loạt các change request. ví dụ như là 1 pull request number
 
 
+## 3. Extending with Shared Libraries
+- Quản lý qua các phần mềm quản lý source code như git
+- Cấu trúc 1 shared lib:
+```
+(root)
++- src                     # Groovy source files
+|   +- org
+|       +- foo
+|           +- Bar.groovy  # for org.foo.Bar class
++- vars
+|   +- foo.groovy          # for global 'foo' variable
+|   +- foo.txt             # help for 'foo' variable
++- resources               # resource files (external libraries only)
+|   +- org
+|       +- foo
+|           +- bar.json    # static helper data for org.foo.Bar
+```
