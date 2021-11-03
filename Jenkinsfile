@@ -120,7 +120,7 @@ pipeline {
                 echo "${env.GIT_BRANCH}"
                 echo "EVERYTHING OKE"
                 sh 'printenv'
-    //            check("Pham Quoc Khanh")                
+                check.info("Pham Quoc Khanh")                
             }
         }
     }
