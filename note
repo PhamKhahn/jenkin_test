@@ -484,3 +484,18 @@ Jenkin lấy tên của Pipeline để tạo dir trên disk -> nếu pipeline na
 |       +- foo
 |           +- bar.json    # static helper data for org.foo.Bar
 ```
+- `src` : dir (giống như cấu trúc source Java ), được add vào classpath khi thực thi Pipeline.
+- `vars` : được expose như 1 variable trong Pipeline.Tên file là tên của biến trong Pipeline. 
+```
+- Nếu muốn call file vars/log.groovy với hàm def info(message) bên trong nó
+=> có thể access :  log.info "hello world"
+
+- Có thế đưa nhiều functions vào file này.
+- Đuôi file: .groovy
+- Tên file dạng: camelCased
+```
+- `resources` : cho phép step libraryResource có thể được sử dụng từ các extenal library để load các file không phải groovy
+
+```
+VD: các hàm viết trong vars gọi đến file yml trong resources
+```

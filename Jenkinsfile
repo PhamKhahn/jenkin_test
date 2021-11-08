@@ -1,4 +1,5 @@
 @Library('jenkins-library@master') _
+import check.groovy.*
 /*
 pipeline {
     agent any
@@ -120,7 +121,10 @@ pipeline {
                 echo "${env.GIT_BRANCH}"
                 echo "EVERYTHING OKE"
                 sh 'printenv'
-                check.info("Pham Quoc Khanh")                
+                script {
+                    check.info("Pham Quoc Khanh")
+                }   
+                
             }
         }
     }
