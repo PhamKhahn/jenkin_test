@@ -73,7 +73,10 @@ pipeline {
 
 // Sử dụng env của pipeline. check bằng printenv để xem các env hiện có. 
 pipeline {
-    agent node1
+    agent {
+    label 'node1'
+    }
+
     environment {
         AGE = 15
         NAME = "Pham Quoc Khanh"
